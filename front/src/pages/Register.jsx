@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -9,6 +8,7 @@ const Register = () => {
     email: "",
     password: "",
   });
+
   const [err, setError] = useState(null);
 
   const navigate = useNavigate();
@@ -29,6 +29,7 @@ const Register = () => {
 
   return (
     <div className="auth">
+      {}
       <h1>Register</h1>
       <form>
         <input
@@ -52,10 +53,12 @@ const Register = () => {
           name="password"
           onChange={handleChange}
         />
-        <button onClick={handleSubmit}>Register</button>
-        {err && <p>{err}</p>}
+        <button onClick={handleSubmit}>Register</button>{" "}
+        {}
+        {err && <p>{err}</p>} {}
         <span>
-          Do you have an account? <Link to="/login">Login</Link>
+          Do you have an account? <Link to="/login">Login</Link>{" "}
+          {}
         </span>
       </form>
     </div>

@@ -1,8 +1,13 @@
-$lightGreen: #b9e7e7;
+$light-orange: #ff2d49;
+$dark-orange: #c0001a;
+$orange: #f00020;
+$brown-orange: #800000;
+$light-gray: #707070;
 
 .app {
   display: flex;
   justify-content: center;
+
   .container {
     width: 1024px;
 
@@ -10,19 +15,19 @@ $lightGreen: #b9e7e7;
       text-decoration: none;
       color: inherit;
     }
-    //LOGIN & REGISTER
 
+    // LOGIN & REGISTER
     .auth {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background-color: $lightGreen;
+      background-color: $light-orange;
 
       h1 {
-        font-size: 20px;
-        color: teal;
+        font-size: 30px;
+        color: $light-gray;
         margin-bottom: 20px;
       }
 
@@ -31,6 +36,7 @@ $lightGreen: #b9e7e7;
         flex-direction: column;
         padding: 50px;
         background-color: white;
+        border-radius: 4px;
         width: 200px;
         gap: 20px;
 
@@ -43,9 +49,10 @@ $lightGreen: #b9e7e7;
         button {
           padding: 10px;
           border: none;
-          background-color: teal;
-          cursor: pointer;
+          background-color: $dark-orange;
+          border-radius: 4px;
           color: white;
+          cursor: pointer;
         }
 
         p {
@@ -61,71 +68,83 @@ $lightGreen: #b9e7e7;
       }
     }
 
-    //NAVBAR
-
+    // NAVBAR
     .navbar {
       .container {
         padding: 10px 0px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+
         .logo {
           img {
-            width: 120px;
+            width: 100px;
           }
         }
+
         .links {
           display: flex;
           align-items: center;
           gap: 10px;
 
-          h6 {
-            font-size: 16px;
-            font-weight: 300;
+          & > *:not(:last-child):hover {
+            border-bottom: 1px solid $light-orange;
           }
+        }
 
-          span {
-            cursor: pointer;
-          }
+        h6 {
+          font-size: 16px;
+          font-weight: 300;
+        }
 
-          .write {
-            background-color: $lightGreen;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 300;
-            border: 1px solid white;
+        span {
+          cursor: pointer;
+        }
 
-            &:hover {
-              color: teal;
-              background-color: white;
-              border: 1px solid teal;
-            }
+        .write {
+          background-color: $light-orange;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 300;
+          border: 1px solid white; // to prevent items move when hover because the extra pixel of the border when hover
+
+          &:hover {
+            color: $brown-orange;
+            background-color: white;
+            border: 1px solid $dark-orange;
           }
         }
       }
     }
 
-    //FOOTER
-
+    // FOOTER
     footer {
-      margin-top: 100px;
-      padding: 20px;
-      background-color: $lightGreen;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      img {
-        height: 50px;
-      }
+      text-align: center;
+      padding: 20px;
+      margin-top: 200px;
+      border-top: 1px solid #ccc;
+      margin-bottom: 20px;
     }
 
-    //HOME
+    footer span {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #999;
+    }
 
+    footer img {
+      max-width: 75px;
+      margin-bottom: 10px;
+    }
+
+    // HOME
     .home {
       .posts {
         margin-top: 50px;
@@ -141,7 +160,7 @@ $lightGreen: #b9e7e7;
             flex-direction: row-reverse;
           }
 
-          .img {
+          .post-img {
             flex: 2;
             position: relative;
 
@@ -149,7 +168,7 @@ $lightGreen: #b9e7e7;
               content: "";
               width: 100%;
               height: 100%;
-              background-color: $lightGreen;
+              background-color: $light-orange;
               position: absolute;
               top: 20px;
               left: -20px;
@@ -174,22 +193,25 @@ $lightGreen: #b9e7e7;
             }
 
             p {
+              margin-top: 20px;
               font-size: 18px;
             }
 
             button {
               width: max-content;
+              font-size: 16px;
+              margin-top: 40px;
               padding: 10px 20px;
               border: none;
               cursor: pointer;
               background-color: white;
-              border: 1px solid teal;
-              color: teal;
+              border: 1px solid $dark-orange;
+              color: $dark-orange;
 
               &:hover {
                 border: 1px solid white;
-                background-color: $lightGreen;
-                color: black;
+                background-color: $light-orange;
+                color: white;
               }
             }
           }
@@ -197,8 +219,7 @@ $lightGreen: #b9e7e7;
       }
     }
 
-    //SINGLE
-
+    // SINGLE
     .single {
       display: flex;
       gap: 50px;
@@ -220,16 +241,17 @@ $lightGreen: #b9e7e7;
           align-items: center;
           gap: 10px;
           font-size: 14px;
+
           img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
           }
+        }
 
-          span {
-            font-weight: bold;
-          }
+        span {
+          font-weight: bold;
         }
 
         .edit {
@@ -253,6 +275,7 @@ $lightGreen: #b9e7e7;
           line-height: 30px;
         }
       }
+
       .menu {
         flex: 2;
         display: flex;
@@ -284,22 +307,21 @@ $lightGreen: #b9e7e7;
             padding: 7.5px 15px;
             border: none;
             cursor: pointer;
-            color: teal;
             background-color: white;
-            border: 1px solid teal;
+            border: 1px solid $dark-orange;
+            color: $dark-orange;
 
             &:hover {
               border: 1px solid white;
-              background-color: $lightGreen;
-              color: black;
+              background-color: $light-orange;
+              color: white;
             }
           }
         }
       }
     }
 
-    //WRITE
-
+    // WRITE
     .add {
       margin-top: 20px;
       display: flex;
@@ -316,8 +338,8 @@ $lightGreen: #b9e7e7;
           border: 1px solid lightgray;
         }
 
-        .editorContainer {
-          height: 300px;
+        .editor-container {
+          height: 400px;
           overflow: scroll;
           border: 1px solid lightgray;
 
@@ -333,52 +355,59 @@ $lightGreen: #b9e7e7;
         display: flex;
         flex-direction: column;
         gap: 20px;
+      }
 
-        .item {
-          border: 1px solid lightgray;
-          padding: 10px;
-          flex:1;
+      .item {
+        padding: 10px;
+        border: 1px solid lightgray;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #555;
+
+        h1 {
+          font-size: 20px;
+        }
+
+        .file {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+        .buttons {
           display: flex;
-          flex-direction: column;
           justify-content: space-between;
-          font-size: 12px;
-          color: #555;
 
-          h1{
-            font-size: 20px;
-          }
-
-          .file{
-            text-decoration: underline;
+          :first-child {
             cursor: pointer;
-          }
+            color: $dark-orange;
+            background-color: white;
+            border: 1px solid $dark-orange;
+            padding: 3px 5px;
 
-          .buttons{
-            display: flex;
-            justify-content: space-between;
-
-            :first-child{
-              cursor: pointer;
-              color: teal;
-              background-color: white;
-              border: 1px solid teal;
-              padding: 3px 5px;
-            }
-            :last-child{
-              cursor: pointer;
+            &:hover {
+              background-color: $dark-orange;
               color: white;
-              background-color: teal;
-              border: 1px solid teal;
-              padding: 3px 5px;
+              border: 1px solid white;
             }
           }
 
-          .cat{
-            display: flex;
-            align-items: center;
-            gap: 2px;
-            color: teal;
+          :last-child {
+            cursor: pointer;
+            color: white;
+            background-color: $dark-orange;
+            border: 1px solid white;
+            padding: 3px 5px;
           }
+        }
+
+        .category {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          color: $dark-orange;
         }
       }
     }

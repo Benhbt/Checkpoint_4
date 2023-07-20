@@ -1,18 +1,24 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
-import Logo from "../assets/img/Hubert.png";
+import Logo from "../images/logo.png";
 
 const Navbar = () => {
   const { currentUser, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const logoutNavbar = () => {
+    logout();
+    navigate("/login");
+  };
 
   return (
     <div className="navbar">
       <div className="container">
         <div className="logo">
-          <Link to="/">
-          <img src={Logo} alt="" />
-          </Link>
+          <a href="/">
+            <img src={Logo} alt="logo" />
+          </a>
         </div>
         <div className="links">
           <Link className="link" to="/?cat=art">
@@ -35,7 +41,7 @@ const Navbar = () => {
           </Link>
           <span>{currentUser?.username}</span>
           {currentUser ? (
-            <span onClick={logout}>Logout</span>
+            <span onClick={logoutNavbar}>Logout</span>
           ) : (
             <Link className="link" to="/login">
               Login

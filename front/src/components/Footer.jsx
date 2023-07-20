@@ -1,13 +1,18 @@
 import React from "react";
-import Logo from "../assets/img/Hubert.png"
+import Logo from "../images/logo.png";
 
 const Footer = () => {
-    return (
-        <footer>
-            <img src={Logo} alt="" />
-            <span>Made with ♥ and <b>React.js</b>. </span>
-        </footer>
-    )
-}
+  return (
+    <footer>
+      <span>
+        <img src={Logo} alt="logo" />
+        <br />
+        Made with 🤍 by
+        <br />
+        <b>@benhbt</b>
+      </span>
+    </footer>
+  );
+};
 
 export default Footer;

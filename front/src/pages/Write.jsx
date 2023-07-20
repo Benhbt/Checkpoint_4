@@ -7,18 +7,21 @@ import moment from "moment";
 
 const Write = () => {
   const state = useLocation().state;
-  const [value, setValue] = useState(state?.title || "");
-  const [title, setTitle] = useState(state?.desc || "");
+
+  const [title, setTitle] = useState(state?.title || "");
+  const [value, setValue] = useState(state?.desc || "");
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState(state?.cat || "");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const upload = async () => {
     try {
       const formData = new FormData();
       formData.append("file", file);
+
       const res = await axios.post("/upload", formData);
+
       return res.data;
     } catch (err) {
       console.log(err);
@@ -27,6 +30,7 @@ const Write = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+
     const imgUrl = await upload();
 
     try {
@@ -44,7 +48,8 @@ const Write = () => {
             img: file ? imgUrl : "",
             date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
           });
-          navigate("/")
+
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -55,10 +60,10 @@ const Write = () => {
       <div className="content">
         <input
           type="text"
-          placeholder="Title"
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <div className="editorContainer">
+        <div className="editor-container">
           <ReactQuill
             className="editor"
             theme="snow"
