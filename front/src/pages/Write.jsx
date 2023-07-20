@@ -74,12 +74,12 @@ const Write = () => {
       </div>
       <div className="menu">
         <div className="item">
-          <h1>Publish</h1>
+          <h1>Publié</h1>
           <span>
-            <b>Status: </b> Draft
+            <b>Statu: </b> Brouillon
           </span>
           <span>
-            <b>Visibility: </b> Public
+            <b>Visibilité: </b> Public
           </span>
           <input
             style={{ display: "none" }}
@@ -89,47 +89,25 @@ const Write = () => {
             onChange={(e) => setFile(e.target.files[0])}
           />
           <label className="file" htmlFor="file">
-            Upload Image
+            Télécharger son image
           </label>
           <div className="buttons">
-            <button>Save as a draft</button>
-            <button onClick={handleClick}>Publish</button>
+            <button>Sauvegarder</button>
+            <button onClick={handleClick}>Publié</button>
           </div>
         </div>
         <div className="item">
-          <h1>Category</h1>
+          <h1>Categorie</h1>
           <div className="cat">
             <input
               type="radio"
-              checked={cat === "art"}
+              checked={cat === "expo"}
               name="cat"
-              value="art"
-              id="art"
+              value="expo"
+              id="expo"
               onChange={(e) => setCat(e.target.value)}
             />
-            <label htmlFor="art">Art</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              checked={cat === "science"}
-              name="cat"
-              value="science"
-              id="science"
-              onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="science">Science</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              checked={cat === "technology"}
-              name="cat"
-              value="technology"
-              id="technology"
-              onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="technology">Technology</label>
+            <label htmlFor="expo">Expo</label>
           </div>
           <div className="cat">
             <input
@@ -145,24 +123,46 @@ const Write = () => {
           <div className="cat">
             <input
               type="radio"
-              checked={cat === "design"}
+              checked={cat === "technology"}
               name="cat"
-              value="design"
-              id="design"
+              value="technology"
+              id="technology"
               onChange={(e) => setCat(e.target.value)}
             />
-            <label htmlFor="design">Design</label>
+            <label htmlFor="technology">Technology</label>
           </div>
           <div className="cat">
             <input
               type="radio"
-              checked={cat === "food"}
+              checked={cat === "jeux"}
               name="cat"
-              value="food"
-              id="food"
+              value="jeux"
+              id="jeux"
               onChange={(e) => setCat(e.target.value)}
             />
-            <label htmlFor="food">Food</label>
+            <label htmlFor="jeux">jeux</label>
+          </div>
+          <div className="cat">
+            <input
+              type="radio"
+              checked={cat === "code"}
+              name="cat"
+              value="code"
+              id="code"
+              onChange={(e) => setCat(e.target.value)}
+            />
+            <label htmlFor="code">Code</label>
+          </div>
+          <div className="cat">
+            <input
+              type="radio"
+              checked={cat === "miam"}
+              name="cat"
+              value="miam"
+              id="miam"
+              onChange={(e) => setCat(e.target.value)}
+            />
+            <label htmlFor="miam">Miam</label>
           </div>
         </div>
       </div>

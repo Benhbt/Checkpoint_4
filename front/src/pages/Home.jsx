@@ -24,8 +24,18 @@ const Home = () => {
     return doc.body.textContent;
   };
 
+  const handleScroll = (event) => {
+    const container = event.target;
+    const scrollAmount = event.deltaY;
+    container.scrollTo({
+      top: 0,
+      left: container.scrollLeft + scrollAmount,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <div className="home">
+    <div className="home" onWheel={handleScroll}>  
       <div className="posts">
         {}
         {posts.map((post) => (
@@ -43,7 +53,7 @@ const Home = () => {
               <p>{getText(post.desc)}</p>
               {}
               <Link className="link" to={`/post/${post.id}`}>
-                <button>Read More</button>
+                <button>Viens ICI</button>
               </Link>
             </div>
           </div>

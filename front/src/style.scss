@@ -5,11 +5,10 @@ $brown-orange: #800000;
 $light-gray: #707070;
 
 .app {
-  display: flex;
-  justify-content: center;
+
 
   .container {
-    width: 1024px;
+
 
     .link {
       text-decoration: none;
@@ -74,9 +73,10 @@ $light-gray: #707070;
         padding: 10px 0px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        margin: 0 20%;
 
         .logo {
+          margin-right: 30%;
           img {
             width: 100px;
           }
@@ -86,6 +86,7 @@ $light-gray: #707070;
           display: flex;
           align-items: center;
           gap: 10px;
+
 
           & > *:not(:last-child):hover {
             border-bottom: 1px solid $light-orange;
@@ -105,12 +106,11 @@ $light-gray: #707070;
           background-color: $light-orange;
           width: 50px;
           height: 50px;
-          border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           font-weight: 300;
-          border: 1px solid white; // to prevent items move when hover because the extra pixel of the border when hover
+          border: 1px solid white;
 
           &:hover {
             color: $brown-orange;
@@ -146,15 +146,19 @@ $light-gray: #707070;
 
     // HOME
     .home {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+
       .posts {
-        margin-top: 50px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: 150px;
+        width: 100vw;
+        margin: 10% 15%;
 
         .post {
-          display: flex;
-          gap: 100px;
+
 
           &:nth-child(2n + 1) {
             flex-direction: row-reverse;
@@ -166,27 +170,31 @@ $light-gray: #707070;
 
             &::after {
               content: "";
-              width: 100%;
-              height: 100%;
               background-color: $light-orange;
               position: absolute;
               top: 20px;
               left: -20px;
               z-index: -1;
+              border-radius: 25%;
+              width: 400px;
+              height: 400px;
             }
 
             img {
-              width: 100%;
-              max-height: 400px;
+              width: 400px;
+              height: 400px;
               object-fit: cover;
+              border-radius: 25%;
             }
           }
 
           .content {
+            padding-top: 10%;
             flex: 3;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            text-align: center;
 
             h1 {
               font-size: 48px;
@@ -217,10 +225,26 @@ $light-gray: #707070;
           }
         }
       }
+
+      @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+        .home{
+          display: flex;
+          flex-direction: row;
+          background-color: #333;
+        }
+      }
+
+
+      @media screen and (max-device-width: 320px) {
+      /* Styles pour cette Media Queries */
+      }
+
+
     }
 
     // SINGLE
     .single {
+      margin: 0 15%;
       display: flex;
       gap: 50px;
 
@@ -323,6 +347,7 @@ $light-gray: #707070;
 
     // WRITE
     .add {
+      margin: 0 15%;
       margin-top: 20px;
       display: flex;
       gap: 20px;
@@ -409,6 +434,37 @@ $light-gray: #707070;
           gap: 5px;
           color: $dark-orange;
         }
+      }
+    }
+  }
+}
+
+@media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1) {
+  .home{
+    display: flex;
+    flex-direction: column;
+
+    .post-img {
+      flex: 2;
+      position: relative;
+
+      &::after {
+        content: "";
+        background-color: $light-orange;
+        position: absolute;
+        top: 20px;
+        left: -20px;
+        z-index: -1;
+        border-radius: 25%;
+        width: 300px;
+        height: 300px;
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 25%;
       }
     }
   }
