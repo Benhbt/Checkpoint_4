@@ -30,24 +30,24 @@ const Login = () => {
 
   return (
     <div className="auth">
-      <h1>Login</h1>
+      <h1>Connection</h1>
       <form>
         <input
           type="text"
-          placeholder="username"
+          placeholder="Pseudo"
           name="username"
           onChange={handleChange}
         />
         <input
           type="password"
-          placeholder="password"
+          placeholder="Mot de passe"
           name="password"
           onChange={handleChange}
         />
-        <button onClick={handleSubmit}>Login</button>
+        <button onClick={handleSubmit}>Connection</button>
         {err && <p>{err}</p>}
         <span>
-          Don't you have an account? <Link to="/register">Register</Link>
+          Tu n'as pas de compte ? <Link to="/register">Enregistre Toi</Link>
         </span>
       </form>
     </div>

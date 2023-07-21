@@ -30,12 +30,12 @@ const Register = () => {
   return (
     <div className="auth">
       {}
-      <h1>Register</h1>
+      <h1>Création de compte</h1>
       <form>
         <input
           required
           type="text"
-          placeholder="username"
+          placeholder="Pseudo"
           name="username"
           onChange={handleChange}
         />
@@ -49,15 +49,15 @@ const Register = () => {
         <input
           required
           type="password"
-          placeholder="password"
+          placeholder="Mot de passe"
           name="password"
           onChange={handleChange}
         />
-        <button onClick={handleSubmit}>Register</button>{" "}
+        <button onClick={handleSubmit}>Enregistrement</button>{" "}
         {}
         {err && <p>{err}</p>} {}
         <span>
-          Do you have an account? <Link to="/login">Login</Link>{" "}
+          Tu as déja un compte ? <Link to="/login">Connecte toi</Link>{" "}
           {}
         </span>
       </form>

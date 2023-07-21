@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 import Logo from "../images/logo.png";
 
+
 const Navbar = () => {
   const { currentUser, logout } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ const Navbar = () => {
           </Link>
           <span>{currentUser?.username}</span>
           {currentUser ? (
-            <span onClick={logoutNavbar}>Logout</span>
+            <span onClick={logoutNavbar}>Déco</span>
           ) : (
             <Link className="link" to="/login">
               CO
